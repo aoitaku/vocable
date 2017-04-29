@@ -1,0 +1,2 @@
+# vocable
+Generate a vocable
