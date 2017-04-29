@@ -43,7 +43,7 @@ export class Syllable {
 export default class Vocable {
   public static generate ({ numOfSyllables, onsets, nuclea, codas }: IVocableGenerationConfig) {
     return new this(_.times(numOfSyllables, (n) => {
-      return Syllable.generate(_.sample(onsets), _.sample(nuclea), _.sample(codas))
+      return Syllable.generate(_.sample([...onsets, '']), _.sample(nuclea), _.sample([...codas, '']))
     }))
   }
 
