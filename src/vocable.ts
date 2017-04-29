@@ -51,9 +51,22 @@ export default class Vocable {
 
   constructor (syllables: Syllable[]) {
     this.syllables = syllables
+    this.normalize()
   }
+
+  public normalize () {
+    _.reduce(this.syllables, (prev: Syllable, current: Syllable, index) => {
+      if (prev) {
+        const coda = prev.coda.toString()
+        if (coda.length > 1 && current.onset.toString().startsWith(coda.slice(-1))) {
+          prev.coda = new SyllableComponent(prev.coda.toString().slice(0, -1))
+        }
+      }
+      return current
+    }, null)
+  }
+
   public toString () {
     return _.map(this.syllables, (syllable) => syllable.toString()).join('')
   }
-
 }
