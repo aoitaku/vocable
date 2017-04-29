@@ -1,0 +1,22 @@
+{
+  "name": "vocable",
+  "description": "vocable generator",
+  "version": "0.9.0",
+  "licenses": [
+    {
+      "type": "zlib",
+      "url": "https://opensource.org/licenses/Zlib"
+    }
+  ],
+  "private": true,
+  "author": "Taku Aoi<aoitaku@gmail.com>",
+  "main": "./lib/vocable.js",
+  "types": "./lib/vocable",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/aoitaku/vocable.git"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.4"
+  }
+}
