@@ -57,8 +57,9 @@ export default class Vocable {
   public normalize () {
     _.reduce(this.syllables, (prev: Syllable, current: Syllable, index) => {
       if (prev) {
+        const nucleus = prev.nucleus.toString()
         const coda = prev.coda.toString()
-        if (coda.length > 1 && current.onset.toString().startsWith(coda.slice(-1))) {
+        if (nucleus.length > 1 && coda.length > 1 && current.onset.toString().startsWith(coda.slice(-1))) {
           prev.coda = new SyllableComponent(prev.coda.toString().slice(0, -1))
         }
       }
